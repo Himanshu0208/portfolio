@@ -4,8 +4,8 @@ import Image from "next/image"
 export default function About() {
   return (
     <section className="h-screen bg-white">
-      <div className="w-full h-full flex">
-        <div id="about-written" className="flex flex-col pl-20 ml-10 mt-10 justify-center items-start w-1/2">
+      <div className="w-full h-full flex max-w-[1000px] mx-auto">
+        <div id="about-written" className="flex flex-col ml-[80px] mt-10 justify-center items-start w-1/2">
           <div id="Heading" className="flex flex-col items-center">
             <h2 className="text-4xl font-semibold">About Me</h2>
             <span className="text-gray-400 ">My Introduction</span>
@@ -26,17 +26,8 @@ export default function About() {
           </div>
           <button className="mt-4 px-5 py-2 rounded-lg bg-[#810CA8] text-white flex gap-2 items-center">Resume <FaFileDownload/></button>
         </div>
-        <div id="image-cointainer" className="hidden md:block">
-            <div className="relative left-[70px] top-[150px]">
-              <Image
-                className="rounded-3xl w-[400px] z[-1]"
-                src="/assets/background.jpg"
-                width={400}
-                height={450}
-                alt="background" 
-                />
-            </div>
-            <div className="relative left-[130px] bottom-[250px]">
+        <div id="image-cointainer" className="relative h-[400px] ml-10 rounded-2xl my-auto bg-[--color-purple-dark]">
+            <div className="">
               <Image
                 className="z-[-1]"
                 src="/assets/me-about-removebg.png"
