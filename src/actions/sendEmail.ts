@@ -30,21 +30,20 @@ export const sendEmail = async (formData: FormData) => {
   }
 
   try {
-    
+    await resend.emails.send({
+      from: "Contact Form <onboard@resend.dev>",
+      to: "himanshupandey1036@gmail.com",
+      subject: "Message from Portfolio",
+      reply_to: email as string,
+      html: `
+      <h3>Hi Himanshu,</h3>
+      <p>My Email Id is : ${email}</p>
+      <p>I was saying that ${message}<p>
+      ` 
+    }) 
   } catch (error: unknown) {
-    
+    console.error("Email Not sent because of : ", error);
   }
-  resend.emails.send({
-    from: "Contact Form <onboard@resend.dev>",
-    to: "himanshupandey1036@gmail.com",
-    subject: "Message from Portfolio",
-    reply_to: email as string,
-    html: `
-    <h3>Hi Himanshu,</h3>
-    <p>My Email Id is : ${email}</p>
-    <p>I was saying that ${message}<p>
-    ` 
-  })
   
   console.log("Email sent");
   
