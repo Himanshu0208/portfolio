@@ -13,9 +13,6 @@ export default function About() {
     setActiveSection("About");
   }
 
-  // const savefile = () => {
-  //   saveAs("http://localhost:3000/assets/Resume.pdf", "himanshu_resume.pdf")
-  // }
   return (
     <section ref={ref} id="about" className="min-h-screen bg-white dark:bg-[--dark-mode-back-ground]">
       <div className="w-full h-full flex flex-col md:flex-row max-w-[1000px] mx-auto justify-center">

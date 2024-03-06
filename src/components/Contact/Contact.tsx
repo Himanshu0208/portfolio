@@ -4,8 +4,12 @@ import { useInView } from "react-intersection-observer";
 import SubmitButton from "./SubmitButton"
 import { useActiveSectionContext } from "@/context/ActiveSectionContext";
 import { sendEmail } from "@/actions/sendEmail";
+// import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-hot-toast";
+import { useState } from "react";
 
 export default function Contact() {
+  const [form, setForm] = useState({"senderEmail": "", "message": ""});
   const {ref, inView} = useInView({threshold: 0.60})
   const {setActiveSection} = useActiveSectionContext();
 
@@ -32,9 +36,20 @@ export default function Contact() {
 
           <form 
             className="mt-5 md:mt-10 flex flex-col dark:text-black dark:bg-[--dark-mode-back-ground]" 
-            action={async (fromData) => {
+            action={async (formData) => {
               console.log("Running on client");
-              await sendEmail(fromData);
+              try {
+                setForm({"senderEmail": "", "message": ""});
+                toast.promise(sendEmail(formData), {
+                  loading: "sending Email", 
+                  success: "Email Sent", 
+                  error: "an error occured"
+                })
+                formData.set("senderEmail", "");
+                formData.set("message", "");
+              } catch (error: unknown) {
+                toast.error(error as string); 
+              }
             }}
           >
             <input
@@ -44,6 +59,8 @@ export default function Contact() {
               required
               maxLength={500}
               placeholder="Your email"
+              onChange={(e) => setForm({...form, "senderEmail": e.target.value})}
+              value={form["senderEmail"]}
             />
             <textarea
               className="h-52 my-3 rounded-lg borderBlack border-2 p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
@@ -51,6 +68,8 @@ export default function Contact() {
               placeholder="Your message"
               required
               maxLength={5000}
+              onChange={(e) => setForm({...form, "message": e.target.value})}
+              value={form["message"]}
             />
             <SubmitButton />
           </form>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import ThemeContextProvider from "@/context/ThemeContext";
 import ActiveSectionContextProvider from "@/context/ActiveSectionContext";
+import { Toaster } from "react-hot-toast";
 
 const roboto_slab = Roboto_Slab({ subsets: ["latin"] })
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={roboto_slab.className}>
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
+            <Toaster containerClassName="overflow-x-visible"/>
             <Header />
             {children}
           </ActiveSectionContextProvider>
