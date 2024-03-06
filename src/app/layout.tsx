@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Roboto_Slab } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import ThemeContextProvider from "@/context/ThemeContext";
+import ActiveSectionContextProvider from "@/context/ActiveSectionContext";
 
 const roboto_slab = Roboto_Slab({ subsets: ["latin"] })
 export const metadata: Metadata = {
@@ -15,10 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="!scroll-smooth">
+    <html lang="en" className="!scroll-smooth" suppressHydrationWarning>
       <body className={roboto_slab.className}>
-        <Header />
-        {children}
+        <ThemeContextProvider>
+          <ActiveSectionContextProvider>
+            <Header />
+            {children}
+          </ActiveSectionContextProvider>
+        </ThemeContextProvider>
+
       </body>
     </html>
   );
