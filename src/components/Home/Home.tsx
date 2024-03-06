@@ -4,6 +4,7 @@ import { TypeAnimation } from 'react-type-animation'
 import { FaArrowCircleRight } from "react-icons/fa"
 import { useInView } from 'react-intersection-observer'
 import { useActiveSectionContext } from '@/context/ActiveSectionContext'
+import Link from 'next/link'
 
 export default function Home() {
   const {ref, inView} = useInView({threshold: 0.75})
@@ -32,7 +33,9 @@ export default function Home() {
             </span>
           </span>
           <span className='text-xs md:text-base mt-4 w-2/3 text-slate-500'>I build Full Stack Web Application, Machine learning and Deep Learning Models for solving real world problems</span>
-          <button className='flex items-center gap-2 px-2 md:px-4 py-1 md:py-2 text-sm md:text-lg rounded-lg bg-[--color-purple-dark] text-white mt-4 hover:bg-[--color-purple-light]'>Contact Me <FaArrowCircleRight /></button>
+          <Link href={"#contact"}>
+            <button className='flex items-center gap-2 px-2 md:px-4 py-1 md:py-2 text-sm md:text-lg rounded-lg bg-[--color-purple-dark] text-white mt-4 hover:bg-[--color-purple-light]'>Contact Me <FaArrowCircleRight /></button>
+          </Link>
         </div>
         <div className='relative'>
           <Image 
