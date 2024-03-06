@@ -3,7 +3,7 @@ import {FaFileDownload} from "react-icons/fa"
 import Image from "next/image"
 import  { useInView } from 'react-intersection-observer';
 import { useActiveSectionContext } from "@/context/ActiveSectionContext"
-import {saveAs} from "file-saver"
+// import {saveAs} from "file-saver"
 
 export default function About() {
   const { ref, inView } = useInView({threshold: 0.60});
@@ -13,9 +13,9 @@ export default function About() {
     setActiveSection("About");
   }
 
-  const savefile = () => {
-    saveAs("http://localhost:3000/assets/Resume.pdf", "himanshu_resume.pdf")
-  }
+  // const savefile = () => {
+  //   saveAs("http://localhost:3000/assets/Resume.pdf", "himanshu_resume.pdf")
+  // }
   return (
     <section ref={ref} id="about" className="min-h-screen bg-white dark:bg-[--dark-mode-back-ground]">
       <div className="w-full h-full flex flex-col md:flex-row max-w-[1000px] mx-auto justify-center">
@@ -49,7 +49,9 @@ export default function About() {
               I love to debug and help out people in <span className="text-[--color-purple-dark] dark:text-[--color-purple-light]">finding bugs</span> in their codes. I love to execute a <span className="text-[--color-purple-dark] dark:text-[--color-purple-light]">given task with perfection</span> and I&apos;m here to contribute my bit to this world of programming.
             </p>
           </div>
-          <button className="mt-4 px-5 py-2 rounded-lg bg-[#810CA8] text-white flex gap-2 items-center" onClick={savefile}>Resume <FaFileDownload/></button>
+          <a href="/assests/resume.pdf" download>
+          <button className="mt-4 px-5 py-2 rounded-lg bg-[#810CA8] text-white flex gap-2 items-center hover:bg-[--color-purple-light]">Resume <FaFileDownload/></button>
+          </a>
         </div>
 
         <div id="image-cointainer" className="hidden md:block relative md:h-[475px] ml-10 rounded-2xl my-auto">

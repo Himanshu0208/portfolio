@@ -1,0 +1,10 @@
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.8",
+    "@mui/material": "^5.15.11",
+
+    "react-day-and-night-toggle": "^1.0.18",
+
+    "react-toggle-dark-mode": "^1.1.1",
+
+    "react-theme": "^0.1.4",
