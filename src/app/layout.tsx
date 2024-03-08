@@ -22,7 +22,9 @@ export default function RootLayout({
       <body className={roboto_slab.className}>
         <ThemeContextProvider>
           <ActiveSectionContextProvider>
-            <Toaster containerClassName="overflow-x-visible"/>
+            <div className="overflow-x-hidden">
+            <Toaster/>
+            </div>
             <Header />
             {children}
           </ActiveSectionContextProvider>

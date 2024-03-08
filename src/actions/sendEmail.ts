@@ -14,7 +14,7 @@ const validateString = (str: unknown, maxLength: number) : boolean => {
 export const sendEmail = (formData: FormData): Promise<string> => {
   console.log("Running in server");
 
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     try {
       const email = formData.get("senderEmail");
       const message = formData.get("message");
@@ -27,7 +27,7 @@ export const sendEmail = (formData: FormData): Promise<string> => {
         throw new Error("Message should be a string and less than 500 characters in length");
       }
 
-      resend.emails.send({
+      await resend.emails.send({
         from: "Contact Form <onboard@resend.dev>",
         to: "himanshupandey1036@gmail.com",
         subject: "Message from Portfolio",
