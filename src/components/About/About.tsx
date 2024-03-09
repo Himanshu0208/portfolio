@@ -21,7 +21,7 @@ export default function About() {
                 <h2 className="text-2xl md:text-4xl font-semibold overflow-y-hidden">About Me</h2>
                 <span className="text-gray-400 text-xs md:text-base">My Introduction</span>
           </div>
-          <div id="image-cointainer" className="w-screen md:hidden">
+          <div id="image-cointainer" className="w-full md:hidden">
             <Image
               className="bg-[--color-purple-dark] my-[10px] rounded-xl mx-auto"
               src="/assets/me2.png"
