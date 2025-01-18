@@ -46,7 +46,7 @@ export default function About() {
               I love to debug and help out people in <span className="text-[--color-purple-dark] dark:text-[--color-purple-light]">finding bugs</span> in their codes. I love to execute a <span className="text-[--color-purple-dark] dark:text-[--color-purple-light]">given task with perfection</span> and I&apos;m here to contribute my bit to this world of programming.
             </p>
           </div>
-          <a href="/assets/resume.pdf" download>
+          <a href="/assets/Himanshu.pdf" download>
           <button className="mt-4 px-5 py-2 rounded-lg bg-[#810CA8] text-white flex gap-2 items-center hover:bg-[--color-purple-light]">Resume <FaFileDownload/></button>
           </a>
         </div>
